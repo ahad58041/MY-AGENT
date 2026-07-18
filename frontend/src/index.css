@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Theme tokens as RGB channels (consumed by tailwind.config.js) */
+  :root {
+    --color-background: 255 241 242; /* #FFF1F2 rose-tinted paper */
+    --color-foreground: 136 19 55; /* #881337 deep rose */
+    --color-card: 255 255 255; /* white surfaces */
+    --color-muted: 240 236 242; /* #F0ECF2 */
+    --color-border: 254 205 211; /* #FECDD3 */
+  }
+  :root.dark {
+    --color-background: 23 18 21; /* near-black, warm */
+    --color-foreground: 245 236 239; /* soft near-white */
+    --color-card: 33 26 30; /* raised dark surface */
+    --color-muted: 45 36 41;
+    --color-border: 62 48 55;
+  }
+
+  html {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3
+      font-semibold text-white transition hover:bg-rose-700 focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
+      focus-visible:ring-offset-background
+      disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3
+      font-semibold text-white transition hover:bg-blue-700 focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2
+      focus-visible:ring-offset-background
+      disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
+  }
+  .card {
+    @apply rounded-2xl border border-border bg-card p-6 shadow-sm;
+  }
+  .field {
+    @apply w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none
+      transition placeholder:text-foreground/40 focus:border-primary focus:ring-2 focus:ring-primary/30;
+  }
+}

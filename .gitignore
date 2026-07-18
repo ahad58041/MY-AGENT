@@ -1,0 +1,27 @@
+# ---- Secrets / env ----
+.env
+backend/.env
+frontend/.env
+!*.env.example
+
+# ---- Python / backend ----
+backend/.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# ---- Uploaded videos (local storage) & local DB ----
+backend/storage/
+*.db
+backend/reelpilot.db
+
+# ---- Node / frontend ----
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
